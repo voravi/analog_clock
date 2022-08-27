@@ -120,7 +120,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          if (isAnalogClock == false)
+          if (isAnalogClock)
             ...digitalClock(
               height: _height,
               wight: _wight,
@@ -165,7 +165,7 @@ class _HomePageState extends State<HomePage> {
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.w300,
-            fontSize: 20,
+            fontSize: 19,
             letterSpacing: 1,
           ),
         ),
@@ -228,15 +228,6 @@ class _HomePageState extends State<HomePage> {
         child: Stack(
           alignment: Alignment.center,
           children: [
-            // Text(
-            //   "$hour : $minute : $second",
-            //   style: TextStyle(
-            //     color: Colors.white,
-            //     fontWeight: FontWeight.w300,
-            //     fontSize: 20,
-            //     letterSpacing: 1,
-            //   ),
-            // ),
             Transform.rotate(
               angle: (hr * (pi * 2) / 12) + pi / 2,
               child: Divider(
@@ -256,7 +247,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Transform.rotate(
-              angle: (sec * (pi * 2) / 60) + pi/2,
+              angle: pi/2,
               child: Divider(
                 color: Colors.blueAccent,
                 thickness: 4,
@@ -265,6 +256,19 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ],
+        ),
+      ),
+      Positioned(
+        top: 600,
+
+        child: Text(
+          "$hour : $minute : $second",
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.w300,
+            fontSize: 20,
+            letterSpacing: 1,
+          ),
         ),
       ),
     ];
