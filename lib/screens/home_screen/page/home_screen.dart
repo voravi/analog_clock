@@ -247,7 +247,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Transform.rotate(
-              angle: pi/2,
+              angle: (sec * (pi * 2) / 60) + pi / 2,
               child: Divider(
                 color: Colors.blueAccent,
                 thickness: 4,
@@ -260,7 +260,6 @@ class _HomePageState extends State<HomePage> {
       ),
       Positioned(
         top: 600,
-
         child: Text(
           "$hour : $minute : $second",
           style: TextStyle(
